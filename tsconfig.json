@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "sourceMap": true,
+        "module": "commonjs",
+        "noImplicitAny":true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["./lib"]
+}
