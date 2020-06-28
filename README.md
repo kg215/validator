@@ -12,9 +12,9 @@ const rules: Rules = {
   comparePassword: [required, compareWith("password")],
 }
 const data: AnySource = {
-  name: "134132412afds",
-  password: "134132412afds",
-  comparePassword:"134132412afds"
+  name: "my name",
+  password: "my_password1",
+  comparePassword:"my_password2"
 }
 
 const v = new Validator(rules)
