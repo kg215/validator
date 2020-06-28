@@ -18,7 +18,7 @@ const data: AnySource = {
 }
 
 const v = new Validator(rules)
-//openGreedy 开启贪婪模式的验证，单一字段验证碰到一个错误就停止
+//openGreedy 开启贪婪模式的验证，单一字段完成所有验证才会停止，否则验证到一个错误就停止
 v.openGreedy().valid(data)
 console.log(v.errors())
 ```
