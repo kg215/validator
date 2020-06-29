@@ -7,20 +7,32 @@ import Validator, { Rules, AnySource } from "../lib"
 import { string, size, required, compareWith } from "../lib/rules"
 
 const rules: Rules = {
-  name: [[string], size(5)],
+  name:[[string,'name必须是字符串'], size(5)],
   password: [string, size(10)],
   comparePassword: [required, compareWith("password")],
 }
-const data: AnySource = {
-  name: "my name",
-  password: "my_password1",
-  comparePassword:"my_password2"
-}
 
 const v = new Validator(rules)
-//openGreedy 开启贪婪模式的验证，单一字段完成所有验证才会停止，否则验证到一个错误就停止
-v.openGreedy().valid(data)
-console.log(v.errors())
+//注册单个验证规则
+v.register("somerule",[required,size(11)]);
+//注册用户验证群
+v.registerGroup({
+  "user": ["name","password"]
+});
+//phone是内置规则
+v.registerGroup("userPhone",["phone"]);
+
+const data: AnySource = {
+  name: "1",
+  password: "134132412afds",
+  comparePassword:"134132412afds"
+};
+
+v.group('user').pick("phone").valid(data);
+console.log(v.errors());
+
+v.group('userPhone').valid(data);
+console.log(v.errors());
 ```
 
 - **todo**
