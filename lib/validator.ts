@@ -118,7 +118,6 @@ export default class Validator<R extends Rules, D extends AnySource> {
     if(this.pickPool.size>0){
       dataKeys = dataKeys.filter(key=>this.pickPool.has(key))
     }
-    console.log(dataKeys);
     dataKeys.forEach((key: string) => {
       if (!this.alias[key]) this.alias[key] = key;
       if (this.rules.hasOwnProperty(key)) {
