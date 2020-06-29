@@ -1,5 +1,5 @@
-import fromPairs from "lodash/fromPairs"
-import toPairs from "lodash/toPairs"
+import fromPairs from "lodash.frompairs"
+import toPairs from "lodash.topairs"
 export interface ErrorMessage {
   message: string
   index: number
@@ -11,7 +11,9 @@ export class ErrorHandler {
   constructor() {
     this.errorMap = new Map()
   }
-
+  clear(){
+    this.errorMap.clear()
+  }
   set(key: string, value: ErrorMessage[]) {
     this.errorMap.set(key, value)
   }

@@ -29,7 +29,7 @@ export const size = (len: number) => (
   key: string,
   alias: AnySource<string>
 ) => (msg: string): string | void => {
-  if (data[key].length < len) {
+  if (!data[key] || data[key].length < len) {
     return msg || `${alias[key]}长度不能小于${len}`;
   }
 };
@@ -41,6 +41,16 @@ export const gt = (limit: number) => (
 ) => (msg: string): string | void => {
   if (data[key] < limit) {
     return msg || `${alias[key]}不能小于${limit}`;
+  }
+};
+
+export const lt = (limit: number) => (
+  data: AnySource,
+  key: string,
+  alias: AnySource<string>
+) => (msg: string): string | void => {
+  if (data[key] > limit) {
+    return msg || `${alias[key]}不能大于${limit}`;
   }
 };
 

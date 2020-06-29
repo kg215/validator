@@ -1,4 +1,4 @@
-import empty from "lodash/isEmpty";
+import {default as empty} from "lodash.isempty";
 
 export const isEmpty = (value?: any) => {
   if (typeof value === "number") {

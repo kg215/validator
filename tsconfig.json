@@ -5,7 +5,12 @@
         "module": "commonjs",
         "noImplicitAny":true,
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "*":["lib/*"]
+        }
     },
+    "exclude": ["node_modules"],
     "include": ["./lib"]
 }
