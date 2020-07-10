@@ -12,5 +12,5 @@
         }
     },
     "exclude": ["node_modules"],
-    "include": ["./lib"]
+    "include": ["./lib", "package/reg.pack.ts"]
 }

@@ -27,7 +27,7 @@ export default class Validator<R extends Rules, D extends AnySource> {
   greedy: boolean = false;
   pickPool: Set<string> = new Set()
   groupRules: Map<string,string[]> = new Map()
-
+ 
   constructor(rules?: R, alias?: AnySource<string>) {
     this.errorCenter = new ErrorHandler();
     this.useRule(rules);
